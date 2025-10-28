@@ -179,17 +179,27 @@ void Engine::PrepareUpdate()
 // ---------------------------------------------
 void Engine::FinishUpdate()
 {
+    // Toggle FPS F11
+    if (input->GetKey(SDL_SCANCODE_F11) == KEY_DOWN) {
+        FpsCapEnabled = !FpsCapEnabled;
+        LOG("FPS Cap %s", FpsCapEnabled ? "Enabled" : "Disabled");
+    }
+    
     // L03: TODO 1: Cap the framerate of the gameloop
     double currentDt = frameTime.ReadMs();
 	float maxFrameDuration = 1000.0f / targetFrameRate;
-    if (targetFrameRate > 0 && currentDt < maxFrameDuration) {
-        Uint32 delay = (Uint32)(maxFrameDuration - currentDt);
+    if(FpsCapEnabled)
+    {
+        if (targetFrameRate > 0 && currentDt < maxFrameDuration) 
+        {
+            Uint32 delay = (Uint32)(maxFrameDuration - currentDt);
 
-        // L03: TODO 2: Measure accurately the amount of time SDL_Delay() actually waits compared to what was expected
-        PerfTimer delayTimer = PerfTimer();
-        SDL_Delay(delay);
-        //Measure accurately the amount of time SDL_Delay() actually waits compared to what was expected
-        //LOG("We waited for %I32u ms and got back in %f ms",delay,delayTimer.ReadMs()); // Uncomment this line to see the results
+            // L03: TODO 2: Measure accurately the amount of time SDL_Delay() actually waits compared to what was expected
+            PerfTimer delayTimer = PerfTimer();
+            SDL_Delay(delay);
+            //Measure accurately the amount of time SDL_Delay() actually waits compared to what was expected
+            //LOG("We waited for %I32u ms and got back in %f ms",delay,delayTimer.ReadMs()); // Uncomment this line to see the results
+        }
     }
 
 	// L2: TODO 4: Calculate:

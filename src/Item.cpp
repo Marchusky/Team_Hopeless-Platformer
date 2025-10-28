@@ -67,3 +67,15 @@ bool Item::Destroy()
 	Engine::GetInstance().entityManager->DestroyEntity(shared_from_this());
 	return true;
 }
+
+void Item::OnCollision(PhysBody* physA, PhysBody* physB)
+{
+	switch (physB->ctype)
+	{
+	case ColliderType::PLAYER:
+		LOG("Collided with player - DESTROY");
+		Engine::GetInstance().textures.get()->UnLoad(texture);
+		Engine::GetInstance().entityManager.get()->DestroyEntity(shared_from_this());
+		break;
+	}
+}

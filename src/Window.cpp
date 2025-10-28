@@ -44,7 +44,7 @@ bool Window::Awake()
 		if (resizable == true)         flags |= SDL_WINDOW_RESIZABLE;
 
 		// SDL3: SDL_CreateWindow(title, w, h, flags). Set position separately.
-		window = SDL_CreateWindow("Platform Game", width, height, flags);
+		window = SDL_CreateWindow("Hopeless", width, height, flags);
 
 		if (window == NULL)
 		{

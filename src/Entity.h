@@ -16,8 +16,7 @@ class Entity : public std::enable_shared_from_this<Entity>
 {
 public:
 
-	Entity() {}
-	Entity(EntityType type) : type(type), active(true) {}
+	Entity() {}Entity(EntityType type) : type(type), active(true) {}
 
 	virtual bool Awake()
 	{

@@ -38,13 +38,13 @@ private:
 
 public:
 
-	//Declare player parameters
+	// Declare player parameters
 	float speed = 4.0f;
+	
 	SDL_Texture* texture = NULL;
-
 	int texW, texH;
 
-	//Audio fx
+	// Audio fx
 	int pickCoinFxId;
 
 	// L08 TODO 5: Add physics to the player - declare a Physics body
@@ -52,8 +52,17 @@ public:
 	float jumpForce = 2.5f; // The force to apply when jumping
 	bool isJumping = false; // Flag to check if the player is currently jumping
 
+	// Dash
+	bool isDashing = false;
+	bool canDash = true;
+	float dashSpeed = 5.0f;
+	float dashTimer = 0.0f;
+
+	// Death
+	bool isDead = false;       // Tracks whether the player is dead
+	bool dieAnimationPlayed = false; // Tracks if the die animation has finished
+
 private: 
 	b2Vec2 velocity;
 	AnimationSet anims;
-
 };

@@ -1,7 +1,7 @@
 <!-- Config file for the engine -->
 <config>
   <engine>
-    <title>My platformer game</title>
+    <title>Hopless</title>
     <targetFrameRate value="60"/>
   </engine>
 
@@ -16,4 +16,64 @@
     <resizable value="false"/>
     <fullscreen_window value="false"/>
   </window>
+	<scene>
+		<map path="Assets/Maps/" name="Level1.tmx"/>
+		<entities>
+			<player x="100" y="320" w="32" h ="32" texture="Assets/Textures/player.png">
+				<animations>
+					<idle loop="true" speed ="0.1">
+						<frame x="0" y="0" w="32" h="32"/>
+						<frame x="32" y="0" w="32" h="32"/>
+					</idle>
+					<walking loop="true" speed ="0.1">
+						<frame x="0" y="96" w="32" h="32"/>
+						<frame x="32" y="96" w="32" h="32"/>
+						<frame x="64" y="96" w="32" h="32"/>
+						<frame x="96" y="96" w="32" h="32"/>
+						<frame x="128" y="96" w="32" h="32"/>
+						<frame x="160" y="96" w="32" h="32"/>
+						<frame x="192" y="96" w="32" h="32"/>
+						<frame x="224" y="96" w="32" h="32"/>
+					</walking>
+					<jump loop="false" speed ="0.1">
+						<frame x="0" y="160" w="32" h="32"/>
+						<frame x="32" y="160" w="32" h="32"/>
+						<frame x="64" y="160" w="32" h="32"/>
+						<frame x="96" y="160" w="32" h="32"/>
+						<frame x="128" y="160" w="32" h="32"/>
+						<frame x="160" y="160" w="32" h="32"/>
+						<frame x="192" y="160" w="32" h="32"/>
+						<frame x="224" y="160" w="32" h="32"/>
+					</jump>
+					<dash loop="false" speed ="0.02">
+						<frame x="0" y="192" w="32" h="32"/>
+						<frame x="32" y="192" w="32" h="32"/>
+						<frame x="64" y="192" w="32" h="32"/>
+					</dash>
+					<die loop="false" speed ="0.06">
+						<frame x="0" y="224" w="32" h="32"/>
+						<frame x="32" y="224" w="32" h="32"/>
+						<frame x="64" y="224" w="32" h="32"/>
+						<frame x="96" y="224" w="32" h="32"/>
+						<frame x="128" y="224" w="32" h="32"/>
+						<frame x="160" y="224" w="32" h="32"/>
+						<frame x="192" y="224" w="32" h="32"/>
+						<frame x="224" y="224" w="32" h="32"/>
+					</die>
+					<shoot loop="false" speed ="0.2">
+						<frame x="0" y="256" w="32" h="32"/>
+						<frame x="32" y="256" w="32" h="32"/>
+						<frame x="64" y="256" w="32" h="32"/>
+						<frame x="96" y="256" w="32" h="32"/>
+						<frame x="128" y="256" w="32" h="32"/>
+						<frame x="160" y="256" w="32" h="32"/>
+						<frame x="192" y="256" w="32" h="32"/>
+						<frame x="224" y="256" w="32" h="32"/>
+						<frame x="0" y="0" w="32" h="32"/>
+						<frame x="32" y="0" w="32" h="32"/>
+					</shoot>
+				</animations>
+			</player>
+		</entities>
+	</scene>
 </config>

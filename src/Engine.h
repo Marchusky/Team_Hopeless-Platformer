@@ -121,11 +121,12 @@ private:
 
 	float averageFps = 0.0f;
 	int secondsSinceStartup = 0;
+	bool FpsCapEnabled = true;  // FPS cap is enabled by default
 
 	//Maximun frame duration in miliseconds.
 	int targetFrameRate = 60;
 
-	std::string gameTitle = "Platformer Game";
+	std::string gameTitle = "Hopless";
 
 	//L05 TODO 2: Declare a xml_document to load the config file
 	pugi::xml_document configFile;
